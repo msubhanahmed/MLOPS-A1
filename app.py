@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from sklearn.neighbors import KNeighborsClassifier
 import numpy as np
 import joblib
 
