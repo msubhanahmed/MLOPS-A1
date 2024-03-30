@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               
-                git 'https://github.com/msubhanahmed/MLOPS-A1.git'
+                // Checkout the main branch of the Git repository
+                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
             }
         }
     }
