@@ -11,18 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.12.2'
-      
-      - name: Install dependencies
-        run: |
-          pip install flake8
-      
-      - name: Run Flake8
-        run: |
-          flake8 --exclude=".git,__pycache__,venv" .
+          python-version: "3.11"
+      - name: flake8 Lint
+        uses: py-actions/flake8@v2
