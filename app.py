@@ -8,11 +8,19 @@ model = joblib.load('linear_regression_model.pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    if model is None:
+        return jsonify({'error': 'Model not loaded'}), 500
     data = request.json
-    values = [data['plot_size']]
-    X = np.array(values).reshape(1, -1)
+    if 'plot_size' not in data:
+        return jsonify({'error': 'Invalid JSON.'}), 400
+    try:
+        plot_size = float(data['plot_size'])
+    except ValueError:
+        return jsonify({'error': 'Invalid plot_size value.'}), 400
+
+    X = np.array([[plot_size]])
     prediction = model.predict(X)
-    return jsonify({'predicted_price': prediction})
+    return jsonify({'predicted_price': prediction[0]})
 
 
 if __name__ == '__main__':
