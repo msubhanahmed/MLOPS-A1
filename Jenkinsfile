@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Dockerfile Branch') {
             steps {
                 // Checkout the branch containing the Dockerfile
-                git branch: 'test', url: 'https://github.com/msubhanahmed/MLOPS-A1.git'
+                git branch: 'main', url: 'https://github.com/msubhanahmed/MLOPS-A1.git'
             }
         }
         
