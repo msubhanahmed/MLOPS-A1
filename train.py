@@ -6,7 +6,7 @@ import joblib
 data = pd.read_csv("data/price-prediction.csv")
 X = data[['PLOTS']]
 y = data['PRICE']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 model = LinearRegression()
 model.fit(X_train, y_train)
 train_score = model.score(X_train, y_train)
