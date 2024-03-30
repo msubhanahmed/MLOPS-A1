@@ -1,7 +1,4 @@
 Flask
-scikit-learn
+flask_cors
 numpy
-pandas
 joblib
-gunicorn
-pytest
