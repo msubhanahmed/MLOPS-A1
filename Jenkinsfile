@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    dockerImage = docker.build('jawad-151/price-prediction')
+                    dockerImage = docker.build('jawad151/price-prediction')
                 }
             }
         }
