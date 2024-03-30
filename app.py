@@ -1,9 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import numpy as np
 import joblib
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='frontend', static_folder='frontend')
 model = joblib.load('linear_regression_model.pkl')
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/predict', methods=['POST'])
