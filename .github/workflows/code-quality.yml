@@ -3,7 +3,7 @@ name: Code Quality Check
 on:
   push:
     branches:
-      - main  # Adjust the branch name as needed
+      - develop
 
 jobs:
   flake8:
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Adjust the Python version as needed
+          python-version: '3.12.2'
       
       - name: Install dependencies
         run: |
